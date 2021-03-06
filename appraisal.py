@@ -43,8 +43,8 @@ def getRegistryReports(token_id):
 # python appraisal.py        get            1
 def main():
     if sys.argv[1] == "report":
-        token_id, report_uri = createRegistryReport()
-        receipt = reportRegistryReport(token_id, report_uri)
+        token_id, report_uri = createAppraisalReport()
+        receipt = reportRegistry(token_id, report_uri)
         print(receipt)
         print("Report URI:", report_uri)
 
