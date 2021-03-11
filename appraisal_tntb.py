@@ -4,7 +4,7 @@ import sys
 wine_registry = initContract()
 
 def createAppraisalReport():
-    date = input("Date of the registration: ")
+    date = input("Date of the appraisal: ")
     description = input("Description: ")
     token_id = int(input("Token ID: "))
 
