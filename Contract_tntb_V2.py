@@ -23,7 +23,7 @@ headers = {
 
 
 def initContract():
-    with open(Path("WineRegistry_tntb.json")) as json_file:
+    with open(Path("SupplyChain_tntb_V2.json")) as json_file:
         abi = json.load(json_file)
 
     return w3.eth.contract(address=crypto_address, abi=abi)
