@@ -10,10 +10,10 @@ load_dotenv(find_dotenv())
 
 pinata_api_key = os.environ.get("pinata_api_key")
 pinata_secret_api_key = os.environ.get("pinata_secret_api_key")
-crypto_address = os.environ.get("crypto_address")
+# crypto_address = os.environ.get("crypto_address")
 
 # if we are hardcoding instead of instead of load_dotenv
-# crypto_address = "0x53319E332DEC195CC42FeAa0D3B31c2482A24791"
+crypto_address = "0xa1228dB161F1D1F5dcA9C922137c5C5C45cC447C"
 
 headers = {
     "Content-Type": "application/json",
@@ -26,16 +26,16 @@ def initContract():
     with open(Path("WineRegistry_tntb.json")) as json_file:
         abi = json.load(json_file)
 
-    return w3.eth.contract(address=cryptofax_address, abi=abi)
+    return w3.eth.contract(address=crypto_address, abi=abi)
 
 
-def convertDataToJSON(time, description):
+def convertDataToJSON(time, new_value):
     data = {
         "pinataOptions": {"cidVersion": 1},
         "pinataContent": {
             "name": "Appraisal Report",
-            "description": description,
-            "image": "ipfs://bafybeihsecbomd7gbu6qjnvs7jinlxeufujqzuz3ccazmhvkszsjpzzrsu",
+            "new value": new_value,
+            "image": "ipfs://bafybeig6jj2f6bp2grmuauvdqjds667qsdxc3m6opslxnsnd27egrxdiiq",
             "time": time,
         },
     }
