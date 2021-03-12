@@ -13,7 +13,7 @@ pinata_secret_api_key = os.environ.get("pinata_secret_api_key")
 # crypto_address = os.environ.get("crypto_address")
 
 # if we are hardcoding instead of instead of load_dotenv
-crypto_address = "0xa1228dB161F1D1F5dcA9C922137c5C5C45cC447C"
+crypto_address = "0x456f89B33eC1Ccec744aF77b61363eb61fAD5b55"
 
 headers = {
     "Content-Type": "application/json",
