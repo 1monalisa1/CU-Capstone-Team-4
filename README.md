@@ -7,14 +7,14 @@
 
 # Background and Introduction
 
-![wine_fields](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/wine_fields.png)
+![wine_fields](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/wine_field.png)<br>
 
 While for many of us, wine is only for drinking or pairing with a nice meal, there is an elite group of investors and collectors<br>
 collectors who seek to acquire rare bottles. In some cases these rare bottles are acquired for status, in other cases to enjoy,<br>
 and often, to hold as an asset with the hope that the wine will appreciate in value. Like the art market, the wine market has<br> 
 had little volatility while having greater returns than the stock market.<br>
 
-![snp](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/snp.png)
+![snp](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/snp.png)<br>
 (source: https://www.wineinvestment.com/wine-investment/market-performance/)<br>
 
 As a result, more eyes have been on this market and bad actors have taken note and found ways to exploit this market.<br>
@@ -26,8 +26,8 @@ tasting parties. He later began consigning some of his impressive bottles to Chr
 in wine. Later it came to light that Kurniawan was adulterating wines by blending inexpensive wines and relabeling them as rare<br>
 Burgundy vintages.  When the FBI searched his home they found cheap California wine along with notes saying what they would be<br>
 masquerading as along with stamps, labels, and corks.<br>  
-(source: wikipedia)
-![sotheybs](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/sotheybs.png)
+(source: wikipedia)<br>
+![sotheybs](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/sotheybs.png)<br>
 
 
 
@@ -36,7 +36,7 @@ This solution can be further rolled out to trace wine from the point of producti
 wine by providing a supply chain tracking solution that provides transparency for buyers.<br>
 
 # Wine Supply Chain
-![barrels](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/barrels.png)
+![barrels](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/barrels.png)<br>
 
 New production of wine can be very complex depending on multiple factors including capacity of the producers, bottling facility<br>
 constraints, route to market differences and other iterations of supply.  Our code controls for this by having consistent conditionals<br>
@@ -48,7 +48,7 @@ the consumer knows that the wine has not been tampered with or spoiled unintenti
 
 
 # Methodology
-![token](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/token.png)
+![token](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/token.png)<br>
 
 Our team coded a solidity contract that created a nonfungible token (NFT) capturing a wine’s origin, producer, vintage, and varietal.<br>
 This then would be used to track ownership of the token via the blockchain. As mentioned above, whereas the wine that most consumers<br> 
