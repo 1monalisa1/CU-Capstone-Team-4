@@ -26,7 +26,6 @@ tasting parties. He later began consigning some of his impressive bottles to Chr
 in wine. Later it came to light that Kurniawan was adulterating wines by blending inexpensive wines and relabeling them as rare<br>
 Burgundy vintages.  When the FBI searched his home they found cheap California wine along with notes saying what they would be<br>
 masquerading as along with stamps, labels, and corks.<br>  
-(source: wikipedia)<br>
 ![sotheybs](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/sotheybs.png)<br>
 
 
