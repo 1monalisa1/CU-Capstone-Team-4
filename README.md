@@ -15,7 +15,7 @@ and often, to hold as an asset with the hope that the wine will appreciate in va
 had little volatility while having greater returns than the stock market.<br>
 
 ![snp](https://github.com/1monalisa1/CU-Capstone-Team-4/blob/main/png_file/snp.png)<br>
-(source: https://www.wineinvestment.com/wine-investment/market-performance/)<br>
+(source:Liv-Ex.com)<br>
 
 As a result, more eyes have been on this market and bad actors have taken note and found ways to exploit this market.<br>
 Wine fraud has existed as long as wine has been produced. Pliny the Elder once complained that not even the nobility of Rome<br>
