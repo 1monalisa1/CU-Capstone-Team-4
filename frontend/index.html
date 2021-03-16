@@ -86,29 +86,30 @@
       <div class="col s12 m4">
         <div class="card orange lighten-5">
         <div class="card-content brown-text darken-2-text">
-          <span class="card-title"><input id="dapp-copyright-name" placeholder="Wine name..." /></span>
-          <p><input id="dapp-copyright-description" placeholder="Producer..."/></p>
+            <span class="card-title"><input id="dapp-copyright-name" placeholder="Name..." /></span>
+            <p><input id="dapp-copyright-description" placeholder="Vintage..."/></p>
+             <p><input id="dapp-copyright-description" placeholder="Origin..."/></p>
+              <p><input id="dapp-copyright-description" placeholder="Producer..."/></p>
+               <p><input id="dapp-copyright-description" placeholder="Possessor..."/></p>
+                <p><input id="dapp-copyright-description" placeholder="Owner..."/></p>
 
-          <!-- adding possessor feature -->
-          <p><input id="possessor" placeholder="Possessor..."/></p>
+            <p>Image: <input id="dapp-copyright-image" type="file" /></p>
 
-          <p>Image: <input id="dapp-copyright-image" type="file" /></p>
+            <p><input id="dapp-pinata-api-key" placeholder="Pinata API Key"/></p>
+            <p><input id="dapp-pinata-secret-api-key" placeholder="Pinata Secret API Key" type="password" /></p>
+            <p>Note: Pinata requests are done locally via your browser. Your keys are not shared with any party except Pinata.</p>
 
-          <p><input id="dapp-pinata-api-key" placeholder="Pinata API Key"/></p>
-          <p><input id="dapp-pinata-secret-api-key" placeholder="Pinata Secret API Key" type="password" /></p>
-          <p>Note: Pinata requests are done locally via your browser. Your keys are not shared with any party except Pinata.</p>
+            <br/>
+            <p>
+              <label>
+                <input id="dapp-opensource-toggle" type="checkbox"/>
+                <span>Check to Open Source</span>
+              </label>
+            </p>
 
-          <br/>
-          <p>
-            <label>
-              <input id="dapp-opensource-toggle" type="checkbox"/>
-              <span>Check to Open Source</span>
-            </label>
-          </p>
-
-        </div>
-        <div class="card-action">
-          <a id="dapp-copyright" href="#" onclick="dApp.copyrightWork()">Copyright Work</a>
+          </div>
+          <div class="card-action">
+            <a id="dapp-copyright" href="#" onclick="dApp.copyrightWork()">Authentication Certificate</a>
         </div>
       </div>
     </div>
