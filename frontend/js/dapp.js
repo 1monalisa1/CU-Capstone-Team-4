@@ -1,5 +1,6 @@
 // Change this address to match your deployed contract!
-const contract_address = "0x456f89B33eC1Ccec744aF77b61363eb61fAD5b55";
+const contract_address = "0x9aEd2D95a6c52b0076bd0Ca9646B5F17d009b209";
+
 
 const dApp = {
   ethEnabled: function() {
@@ -12,12 +13,17 @@ const dApp = {
     return false;
   },
   updateUI: function() {
-    const renderItem = (copyright_id, reference_uri, icon_class, {name, description, image}) => `
+    const renderItem = (copyright_id, reference_uri, icon_class, {name, vintage, origin, producer, appraisal_value, possessor, owner, image}) => `
         <li>
           <div class="collapsible-header"><i class="${icon_class}"></i>Copyright Number ${copyright_id}: ${name}</div>
           <div class="collapsible-body">
             <h6>Description</h6>
-            <p>${description}</p>
+            <p>${vintage}</p>
+            <p>${origin}</p>
+            <p>${producer}</p>
+            <p>${appraisal_value}</p>
+            <p>${possessor}</p>
+            <p>${owner}</p>
             <img src="https://gateway.pinata.cloud/ipfs/${image.replace("ipfs://", "")}" style="width: 100%" />
             <p><a href="${reference_uri}">Reference URI</a></p>
           </div>
@@ -25,7 +31,8 @@ const dApp = {
     `;
 
     // fetch json metadata from IPFS (name, description, image, etc)
-    const fetchMetadata = (reference_uri) => fetch(`https://gateway.pinata.cloud/ipfs/${reference_uri.replace("ipfs://", "")}`, { mode: "cors" }).then((resp) => resp.json());
+    const fetchMetadata = (reference_uri) => fetch(`https://gateway.pinata.cloud/ipfs/${reference_uri.replace("ipfs://", "")}`,
+     { mode: "cors" }).then((resp) => resp.json());
 
     // fetch the Copyright Events from the contract and append them to the UI list
     this.contract.events.Copyright({fromBlock: 0}, (err, event) => {
@@ -49,14 +56,19 @@ const dApp = {
   },
   copyrightWork: async function() {
     const name = $("#dapp-copyright-name").val();
-    const description = $("#dapp-copyright-description").val();
+    const vintage = $("#dapp-copyright-vintage").val();
+    const origin = $("#dapp-copyright-origin").val();
+    const producer = $("#dapp-copyright-producer").val();
+    const appraisal_value = $("#dapp-copyright-appraisal_value").val();
+    const possessor = $("#dapp-copyright-possessor").val();
+    const owner = $("#dapp-copyright-owner").val();
     const image = document.querySelector('input[type="file"]');
 
     const pinata_api_key = $("#dapp-pinata-api-key").val();
     const pinata_secret_api_key = $("#dapp-pinata-secret-api-key").val();
 
-    if (!pinata_api_key || !pinata_secret_api_key || !name || !description || !image) {
-      M.toast({ html: "Please fill out the entire form" });
+    if (!pinata_api_key || !pinata_secret_api_key || !name || !vintage || !origin || !producer || !appraisal_value || !possessor || !owner || !image) {
+      M.toast({ html: "Please fill out the entire form!" });
       return;
     }
 
@@ -77,16 +89,17 @@ const dApp = {
       });
 
       const image_hash = await image_upload_response.json();
+     
       const image_uri = `ipfs://${image_hash.IpfsHash}`;
 
       M.toast({ html: `Success. Image located at ${image_uri}.` });
       M.toast({ html: "Uploading JSON..." });
 
       const reference_json = JSON.stringify({
-        pinataContent: { name, description, image: image_uri },
+        pinataContent: { name: name, vintage: vintage, origin: origin, producer: producer, appraisal_value: appraisal_value, possessor: possessor, owner: owner, image: image_uri },
         pinataOptions: {cidVersion: 1}
       });
-
+    
       const json_upload_response = await fetch("https://api.pinata.cloud/pinning/pinJSONToIPFS", {
         method: "POST",
         mode: "cors",
@@ -100,13 +113,16 @@ const dApp = {
 
       const reference_hash = await json_upload_response.json();
       const reference_uri = `ipfs://${reference_hash.IpfsHash}`;
+      $("#reference-uri").html(reference_uri);
+      alert(reference_uri);
 
       M.toast({ html: `Success. Reference URI located at ${reference_uri}.` });
       M.toast({ html: "Sending to blockchain..." });
 
       if ($("#dapp-opensource-toggle").prop("checked")) {
-        this.contract.methods.openSourceWork(reference_uri).send({from: this.accounts[0]})
+        this.contract.methods.OpenSourceWork(reference_uri).send({from: this.accounts[0]})
         .on("receipt", (receipt) => {
+          alert("tranasction hash", receipt)
           M.toast({ html: "Transaction Mined! Refreshing UI..." });
           location.reload();
         });
@@ -120,6 +136,7 @@ const dApp = {
 
     } catch (e) {
       alert("ERROR:", JSON.stringify(e));
+      console.log(e)
     }
   },
   main: async function() {
