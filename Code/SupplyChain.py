@@ -29,14 +29,16 @@ def callGetWineInfo():
     txn_hash = wineSupplyChain.functions.getWineInfo(token_id).transact({"from": w3.eth.accounts[0]})
     txn_receipt = w3.eth.waitForTransactionReceipt(txn_hash)
     wine = wineSupplyChain.functions.rare_wines(token_id).call()
+    # the number of entities in a supply chain could increase, so every time a user gets the token info,
+    # this function gets the current length of the dynamic array (= number of entities)
     length = wineSupplyChain.functions.getLength(token_id).call()
     owner_chain_list = []
+    print("Wine name:", wine[0], "\nVintage:", wine[1], "\nOrigin:", wine[2], "\nProducer:", wine[3], \
+          "\nAppraisal value:", wine[4], "\nCurrent possessor:", wine[6], "\nPossessor's ETH address:", wine[5])
+    print("\nChain of the ownership:")
+    # print all the entities name in the dynamic array using the length we got by getLength function
     for i in range(length):
         owner_chain_list.append(wineSupplyChain.functions.owner_chains(token_id, i).call())
-    print("Wine name:", wine[0], "\nVintage:", wine[1], "\nOrigin:", wine[2], "\nProducer:", wine[3], \
-                 "\nAppraisal value:", wine[4], "\nCurrent possessor:", wine[6], "\nPossessor's ETH address:", wine[5])
-    print("\nChain of the ownership:")
-    for i in range(length):
         print(owner_chain_list[i])
 
 
