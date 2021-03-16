@@ -134,5 +134,17 @@ contract WineRegistry is ERC721Full {
         emit Appraisal(token_id, new_value, report_uri);
         return rare_wines[token_id].appraisal_value;
     }
+    
+
+
+
+    /// function for the purpose of frontend
+    event Copyright(uint cid, address owner_address, string uri);
+    
+    function copyrightWork(string memory reference_uri) public {
+        token_ids.increment();
+        uint cid = token_ids.current();
+        emit Copyright(cid, msg.sender, reference_uri);
+    }
 
 }

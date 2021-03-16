@@ -70,6 +70,8 @@ def callTransferOwnership(token_id):
     # once a token is transferred, the holder of the account does not own the token
     # only the new token owner can call this function to transfer the token to another entity
     # to do so, we need to change w3.eth.accounts[0] to the account of the current owner
+    # in the demo, at the second transfer, we changed [0] to [1] because after the first transfer, 
+    # the holder of the second account on Ganache became the token holder
     txn_hash = wineSupplyChain.functions.transferOwnership(token_id, new_owner_id, qualityCheck, tamperProof).transact({"from": w3.eth.accounts[0]})
     txn_receipt = w3.eth.waitForTransactionReceipt(txn_hash)
     return txn_receipt
