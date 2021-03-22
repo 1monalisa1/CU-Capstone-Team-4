@@ -8,7 +8,7 @@ from web3.auto import w3
 
 load_dotenv(find_dotenv())
 
-crypto_address = "0x08106aF91d9E8a81B8E7Fc496486374Ef0E6c88b"
+crypto_address = "0xCf8137F2bda24d2ef1Ac1766D7D3e163bBfe9a30"
 
 headers = {
     "Content-Type": "application/json",
